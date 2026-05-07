@@ -71,7 +71,7 @@ export function SiteFooter() {
       </div>
 
       <div className="border-t border-primary-foreground/10 py-4 text-center text-xs text-primary-foreground/60">
-        © 2025 GuabiSoccer | CNPJ {CNPJ} | Guabiruba-SC
+        © 2025 GuabiSoccer | CNPJ {CNPJ} | Guabiruba-SC - Desenvolvido por Denis Alexandre Furtado (47) 99255-5155
       </div>
     </footer>
   );
