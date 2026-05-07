@@ -33,7 +33,7 @@ function HorariosPage() {
             <tbody className="divide-y divide-border">
               {[
                 { day: "Segunda a Sexta", open: "17:30", close: "22:30 (último horário)" },
-                { day: "Sábado", open: "08:00", close: "23:00" },
+                { day: "Sábado", open: "08:00", close: "10:30 (último horário)" },
                 { day: "Domingo", open: "-", close: "FECHADO" },
                 
               ].map((r) => (
