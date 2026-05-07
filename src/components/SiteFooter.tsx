@@ -45,7 +45,7 @@ export function SiteFooter() {
             <a href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer" className="hover:text-primary-foreground">
               WhatsApp: [INSERIR NÚMERO]
             </a>
-            <p>Seg–Sex: 08:00–23:00</p>
+            <p>Seg–Sex: 17:30 - 22:30 (último horário para reserva)</p>
             <p>Sábado: 08:00–23:00</p>
             <p>Domingo: 08:00–22:00</p>
           </div>
