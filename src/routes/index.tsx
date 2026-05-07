@@ -130,7 +130,7 @@ function HomePage() {
             name: "GuabiSoccer",
             description: "Campo society, quadra poliesportiva e espaço gourmet para festas em Guabiruba-SC.",
             url: "https://www.guabisoccer.com.br",
-            telephone: "+55-47-XXXXX-XXXX",
+            telephone: "+55-47-99163-5474",
             address: {
               "@type": "PostalAddress",
               streetAddress: "Rua Brusque, 885",

@@ -43,7 +43,7 @@ export function SiteFooter() {
           <div className="flex flex-col gap-2 text-sm text-primary-foreground/80">
             <p>{ADDRESS}</p>
             <a href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer" className="hover:text-primary-foreground">
-              WhatsApp: [INSERIR NÚMERO]
+              WhatsApp: (47) 99163-5474
             </a>
             <p>Seg–Sex: 17:30 - 22:30 (último horário para reserva)</p>
             <p>Sábado: 08:00 - 10:30 (último horário para reserva)</p>
