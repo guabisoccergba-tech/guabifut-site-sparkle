@@ -1,0 +1,8 @@
+export const WHATSAPP_NUMBER = "5547999999999"; // INSERIR NÚMERO REAL
+export const WHATSAPP_LINK = `https://wa.me/${WHATSAPP_NUMBER}`;
+export const WHATSAPP_EVENT_LINK = `https://wa.me/${WHATSAPP_NUMBER}?text=Ol%C3%A1!+Gostaria+de+um+or%C3%A7amento+para+evento+na+GuabiSoccer`;
+export const WHATSAPP_RESERVE_LINK = `https://wa.me/${WHATSAPP_NUMBER}?text=Ol%C3%A1!+Gostaria+de+reservar+um+hor%C3%A1rio+na+GuabiSoccer`;
+export const INSTAGRAM_LINK = "https://www.instagram.com/guabisoccer/";
+export const FACEBOOK_LINK = "https://www.facebook.com/guabisoccer";
+export const ADDRESS = "Rua Brusque, 885 – Centro, Guabiruba-SC – CEP 88360-000";
+export const CNPJ = "28.274.680/0001-50";
