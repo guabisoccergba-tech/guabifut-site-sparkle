@@ -34,6 +34,7 @@ function HorariosPage() {
               {[
                 { day: "Segunda a Sexta", open: "17:30", close: "22:30 (último horário)" },
                 { day: "Sábado", open: "08:00", close: "23:00" },
+                { day: "Domingo", open: "-", close: "FECHADO" },
                 
               ].map((r) => (
                 <tr key={r.day} className="bg-card">

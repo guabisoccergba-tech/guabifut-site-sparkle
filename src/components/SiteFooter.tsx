@@ -47,6 +47,7 @@ export function SiteFooter() {
             </a>
             <p>Seg–Sex: 17:30 - 22:30 (último horário para reserva)</p>
             <p>Sábado: 08:00–23:00</p>
+            <p>Domingo: FECHADO</p>
             
           </div>
         </div>
