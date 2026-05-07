@@ -143,7 +143,7 @@ function HomePage() {
             openingHoursSpecification: [
               { "@type": "OpeningHoursSpecification", dayOfWeek: ["Monday","Tuesday","Wednesday","Thursday","Friday"], opens: "17:30", closes: "22:30" },
               { "@type": "OpeningHoursSpecification", dayOfWeek: "Saturday", opens: "08:00", closes: "23:00" },
-              { "@type": "OpeningHoursSpecification", dayOfWeek: "Sunday", opens: "08:00", closes: "22:00" },
+              
             ],
             sameAs: ["https://www.instagram.com/guabisoccer/", "https://www.facebook.com/guabisoccer"],
           }),
