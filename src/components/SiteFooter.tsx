@@ -46,7 +46,7 @@ export function SiteFooter() {
               WhatsApp: [INSERIR NÚMERO]
             </a>
             <p>Seg–Sex: 17:30 - 22:30 (último horário para reserva)</p>
-            <p>Sábado: 08:00–23:00</p>
+            <p>Sábado: 08:00 - 10:30 (último horário para reserva)</p>
             <p>Domingo: FECHADO</p>
             
           </div>

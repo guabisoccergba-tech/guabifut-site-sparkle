@@ -142,7 +142,7 @@ function HomePage() {
             geo: { "@type": "GeoCoordinates", latitude: -27.0758, longitude: -48.9786 },
             openingHoursSpecification: [
               { "@type": "OpeningHoursSpecification", dayOfWeek: ["Monday","Tuesday","Wednesday","Thursday","Friday"], opens: "17:30", closes: "22:30" },
-              { "@type": "OpeningHoursSpecification", dayOfWeek: "Saturday", opens: "08:00", closes: "23:00" },
+              { "@type": "OpeningHoursSpecification", dayOfWeek: "Saturday", opens: "08:00", closes: "10:30" },
               
             ],
             sameAs: ["https://www.instagram.com/guabisoccer/", "https://www.facebook.com/guabisoccer"],
