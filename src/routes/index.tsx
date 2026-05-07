@@ -141,7 +141,7 @@ function HomePage() {
             },
             geo: { "@type": "GeoCoordinates", latitude: -27.0758, longitude: -48.9786 },
             openingHoursSpecification: [
-              { "@type": "OpeningHoursSpecification", dayOfWeek: ["Monday","Tuesday","Wednesday","Thursday","Friday"], opens: "08:00", closes: "23:00" },
+              { "@type": "OpeningHoursSpecification", dayOfWeek: ["Monday","Tuesday","Wednesday","Thursday","Friday"], opens: "17:30", closes: "22:30" },
               { "@type": "OpeningHoursSpecification", dayOfWeek: "Saturday", opens: "08:00", closes: "23:00" },
               { "@type": "OpeningHoursSpecification", dayOfWeek: "Sunday", opens: "08:00", closes: "22:00" },
             ],
