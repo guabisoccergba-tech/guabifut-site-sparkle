@@ -7,8 +7,8 @@ import gourmetImg from "@/assets/espaco-gourmet.jpg";
 export const Route = createFileRoute("/estrutura")({
   head: () => ({
     meta: [
-      { title: "Nossa Estrutura | Campo, Quadra e Área Gourmet — GuabiSoccer" },
-      { name: "description", content: "Conheça a estrutura da GuabiSoccer: campo society sintético, quadra poliesportiva coberta, área gourmet com churrasqueira, vestiários e estacionamento." },
+      { title: "Nossa Estrutura | Campo, Quadra e Quadra de Areia — GuabiSoccer" },
+      { name: "description", content: "Conheça a estrutura da GuabiSoccer: campo society sintético, quadra poliesportiva coberta, quadra de areia, vestiários e estacionamento." },
     ],
   }),
   component: EstruturaPage,
