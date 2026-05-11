@@ -8,7 +8,7 @@ export const Route = createFileRoute("/sobre")({
   head: () => ({
     meta: [
       { title: "Sobre a GuabiSoccer | Complexo Esportivo em Guabiruba-SC" },
-      { name: "description", content: "Conheça a história da GuabiSoccer, complexo esportivo no centro de Guabiruba-SC, com campo society, quadra poliesportiva e espaço gourmet." },
+      { name: "description", content: "Conheça a história da GuabiSoccer, complexo esportivo em Guabiruba-SC, com campo society, quadra poliesportiva e espaço gourmet." },
       { property: "og:title", content: "Sobre a GuabiSoccer | Complexo Esportivo em Guabiruba-SC" },
     ],
   }),
@@ -22,7 +22,7 @@ function SobrePage() {
         <h1 className="text-4xl font-extrabold text-foreground">Sobre a GuabiSoccer</h1>
         <div className="mt-8 space-y-4 text-muted-foreground leading-relaxed">
           <p>A GuabiSoccer nasceu em Guabiruba-SC com o objetivo de oferecer um espaço de lazer, esporte e convivência para toda a comunidade do Vale do Itajaí. Fundada em 2017, nossa estrutura reúne campo society sintético, quadra poliesportiva e área gourmet, tudo pensado para proporcionar a melhor experiência para jogadores, famílias e empresas.</p>
-          <p>Estamos localizados na Rua Brusque, 885, no Centro de Guabiruba, de fácil acesso para quem vem de Brusque, Blumenau, Botuverá e municípios vizinhos. Nosso compromisso é com a qualidade do espaço, a segurança dos nossos clientes e o atendimento ágil.</p>
+          <p>Estamos localizados na Rua Pedro Keller, 885, no bairro Guabiruba Sul , de fácil acesso para quem vem de Brusque, Blumenau, Botuverá, Gaspar  e municípios vizinhos. Nosso compromisso é com a qualidade do espaço, a segurança dos nossos clientes e o atendimento ágil.</p>
           <p>Seja para a pelada de final de semana com os amigos, um campeonato entre empresas, uma festa de aniversário inesquecível ou uma confraternização em família — a GuabiSoccer tem tudo que você precisa.</p>
         </div>
       </section>
