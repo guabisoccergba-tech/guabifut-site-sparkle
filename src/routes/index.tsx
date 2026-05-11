@@ -133,7 +133,7 @@ function HomePage() {
             telephone: "+55-47-99163-5474",
             address: {
               "@type": "PostalAddress",
-              streetAddress: "Rua Brusque, 885",
+              streetAddress: "Rua Pedro Keller, 885",
               addressLocality: "Guabiruba",
               addressRegion: "SC",
               postalCode: "88360-000",
