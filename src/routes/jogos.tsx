@@ -4,6 +4,12 @@ import { Button } from "@/components/ui/button";
 import { WHATSAPP_RESERVE_LINK } from "@/lib/constants";
 import campoImg from "@/assets/hero-campo.jpg";
 import quadraImg from "@/assets/quadra-poliesportiva.jpg";
+import galeria1 from "@/assets/jogos-galeria-1.jpg";
+import galeria2 from "@/assets/jogos-galeria-2.jpg";
+import galeria3 from "@/assets/jogos-galeria-3.jpg";
+import galeria4 from "@/assets/jogos-galeria-4.jpg";
+import galeria5 from "@/assets/jogos-galeria-5.jpg";
+import galeria6 from "@/assets/jogos-galeria-6.jpg";
 
 export const Route = createFileRoute("/jogos")({
   head: () => ({
