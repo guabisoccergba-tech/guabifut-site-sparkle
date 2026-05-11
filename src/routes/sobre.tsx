@@ -34,7 +34,7 @@ function SobrePage() {
           {[
             { src: g1, caption: "Fachada da GuabiSoccer" },
             { src: g2, caption: "Quadra Poliesportiva" },
-            { src: g3, caption: "Vista geral do complexo" },
+            { src: g3, caption: "Campo Sintético Coberto" },
             { src: g4, caption: "Espaço para eventos" },
           ].map((p, i) => (
             <figure key={i} className="overflow-hidden rounded-lg">
