@@ -31,11 +31,11 @@ function EstruturaPage() {
       tags: ["Coberta", "Piso emborrachado", "Multimodal", "Iluminação LED"],
     },
     {
-      title: "Espaço Gourmet / Churrasqueira",
+      title: "Quadra de Areia",
       img: gourmetImg,
       alt: "Espaço gourmet GuabiSoccer Guabiruba",
-      desc: "Área gourmet espaçosa com churrasqueiras completas, mesas, cadeiras e estrutura para receber grupos de todos os tamanhos. Perfeito para festas, aniversários e confraternizações.",
-      tags: ["Churrasqueiras", "Mesas e cadeiras", "Wi-Fi", "Estacionamento"],
+      desc: "Quadra de areia para Beach Tennis, futevôlei e vôlei de praia. Estrutura completa para lazer e prática esportiva ao ar livre.",
+      tags: ["Beach Tennis", "Futevôlei", "Vôlei de praia", "Iluminação"],
     },
   ];
 
