@@ -26,7 +26,7 @@ function EventosPage() {
     { icon: "🎓", title: "Formaturas e colação", desc: "Celebre com seus colegas em grande estilo" },
     { icon: "👨‍👩‍👧", title: "Reuniões de família", desc: "Espaço amplo para toda a família" },
     { icon: "⚽", title: "Campeonatos e torneios", desc: "Organize seu campeonato na melhor estrutura" },
-    { icon: "🍖", title: "Churrascos e happy hour", desc: "Área gourmet completa para seu churrasco" },
+    { icon: "🍖", title: "Churrascos e happy hour", desc: "Quadra Poliesportiva completa para seu churrasco" },
   ];
 
   return (
@@ -51,7 +51,7 @@ function EventosPage() {
         <div className="mx-auto max-w-5xl px-4">
           <h2 className="mb-10 text-center text-2xl font-bold text-secondary-foreground">O que está incluído</h2>
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {["Área gourmet", "Churrasqueiras", "Mesas e cadeiras", "Estacionamento", "Campo para atividades", "Vestiários"].map((item) => (
+            {["Quadra Poliesportiva", "Churrasqueiras", "Mesas e cadeiras", "Estacionamento", "Campo para atividades", "Vestiários"].map((item) => (
               <div key={item} className="flex items-center gap-3 rounded-lg bg-card p-4 shadow-sm">
                 <span className="text-lg text-primary">✓</span>
                 <p className="text-sm font-medium text-card-foreground">{item}</p>

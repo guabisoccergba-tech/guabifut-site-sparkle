@@ -33,7 +33,7 @@ function SobrePage() {
         <div className="grid gap-4 sm:grid-cols-2">
           {[
             { src: g1, caption: "Fachada da GuabiSoccer" },
-            { src: g2, caption: "Área gourmet" },
+            { src: g2, caption: "Quadra Poliesportiva" },
             { src: g3, caption: "Vista geral do complexo" },
             { src: g4, caption: "Espaço para eventos" },
           ].map((p, i) => (
