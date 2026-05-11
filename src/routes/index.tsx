@@ -14,7 +14,7 @@ export const Route = createFileRoute("/")({
       { title: "GuabiSoccer | Campo Society e Espaço para Festas em Guabiruba-SC" },
       { name: "description", content: "Campo society, quadra poliesportiva e quadra de areia em Guabiruba-SC. Reserve seu horário ou evento pelo WhatsApp. Próximo a Brusque e Blumenau." },
       { property: "og:title", content: "GuabiSoccer | Campo Society e Festas em Guabiruba-SC" },
-      { property: "og:description", content: "Reserve seu campo ou espaço de festa em Guabiruba. Campo society, quadra poliesportiva e área gourmet." },
+      { property: "og:description", content: "Reserve seu campo ou quadra em Guabiruba. Campo society, quadra poliesportiva e quadra de areia." },
       { property: "og:type", content: "website" },
       { property: "og:locale", content: "pt_BR" },
     ],
