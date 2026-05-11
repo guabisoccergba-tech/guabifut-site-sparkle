@@ -4,6 +4,12 @@ import { Button } from "@/components/ui/button";
 import { WHATSAPP_RESERVE_LINK } from "@/lib/constants";
 import campoImg from "@/assets/hero-campo.jpg";
 import quadraImg from "@/assets/quadra-poliesportiva.jpg";
+import galeria1 from "@/assets/jogos-galeria-1.jpg";
+import galeria2 from "@/assets/jogos-galeria-2.jpg";
+import galeria3 from "@/assets/jogos-galeria-3.jpg";
+import galeria4 from "@/assets/jogos-galeria-4.jpg";
+import galeria5 from "@/assets/jogos-galeria-5.jpg";
+import galeria6 from "@/assets/jogos-galeria-6.jpg";
 
 export const Route = createFileRoute("/jogos")({
   head: () => ({
@@ -57,7 +63,7 @@ function JogosPage() {
       <section className="mx-auto max-w-7xl px-4 py-16">
         <h2 className="mb-8 text-center text-2xl font-bold text-foreground">Galeria de Jogos</h2>
         <div className="grid gap-3 sm:grid-cols-2 md:grid-cols-3">
-          {[campoImg, quadraImg, campoImg, quadraImg, campoImg, quadraImg].map((src, i) => (
+          {[galeria1, galeria2, galeria3, galeria4, galeria5, galeria6].map((src, i) => (
             <figure key={i} className="overflow-hidden rounded-lg">
               <img src={src} alt={`Jogo na GuabiSoccer foto ${i + 1}`} loading="lazy" width={800} height={600} className="aspect-video w-full object-cover" />
             </figure>
