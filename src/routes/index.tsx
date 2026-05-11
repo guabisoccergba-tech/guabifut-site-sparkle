@@ -12,9 +12,9 @@ export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
       { title: "GuabiSoccer | Campo Society e Espaço para Festas em Guabiruba-SC" },
-      { name: "description", content: "Campo society, quadra poliesportiva e espaço gourmet para festas em Guabiruba-SC. Reserve seu horário ou evento pelo WhatsApp. Próximo a Brusque e Blumenau." },
+      { name: "description", content: "Campo society, quadra poliesportiva e quadra de areia em Guabiruba-SC. Reserve seu horário ou evento pelo WhatsApp. Próximo a Brusque e Blumenau." },
       { property: "og:title", content: "GuabiSoccer | Campo Society e Festas em Guabiruba-SC" },
-      { property: "og:description", content: "Reserve seu campo ou espaço de festa em Guabiruba. Campo society, quadra poliesportiva e área gourmet." },
+      { property: "og:description", content: "Reserve seu campo ou quadra em Guabiruba. Campo society, quadra poliesportiva e quadra de areia." },
       { property: "og:type", content: "website" },
       { property: "og:locale", content: "pt_BR" },
     ],
@@ -40,7 +40,7 @@ function HomePage() {
             O melhor complexo esportivo de Guabiruba
           </h1>
           <p className="mx-auto mt-4 max-w-2xl text-lg text-primary-foreground/90 md:text-xl">
-            Campo society, quadra poliesportiva e espaço gourmet para festas. Reserve agora!
+            Campo society, quadra poliesportiva e quadra de areia. Reserve agora!
           </p>
           <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
             <a href={WHATSAPP_RESERVE_LINK} target="_blank" rel="noopener noreferrer">
@@ -58,7 +58,7 @@ function HomePage() {
         <div className="grid gap-8 md:grid-cols-3">
           {[
             { icon: "⚽", title: "Campo Society", desc: "Gramado sintético de alta qualidade para jogos, peladas e campeonatos", img: campoImg, alt: "Campo society GuabiSoccer" },
-            { icon: "🎉", title: "Espaço de Festas", desc: "Área gourmet com churrasqueira para aniversários, formaturas e confraternizações", img: gourmetImg, alt: "Espaço gourmet GuabiSoccer" },
+            { icon: "🏖️", title: "Quadra de Areia", desc: "Quadra de areia para Beach Tennis, futevôlei e vôlei de praia", img: gourmetImg, alt: "Quadra de areia GuabiSoccer" },
             { icon: "🏐", title: "Quadra Poliesportiva", desc: "Quadra coberta para futsal, vôlei e muito mais", img: quadraImg, alt: "Quadra poliesportiva GuabiSoccer" },
           ].map((c) => (
             <div key={c.title} className="group overflow-hidden rounded-xl border border-border bg-card shadow-sm transition-shadow hover:shadow-md">
@@ -128,7 +128,7 @@ function HomePage() {
             "@context": "https://schema.org",
             "@type": "SportsActivityLocation",
             name: "GuabiSoccer",
-            description: "Campo society, quadra poliesportiva e espaço gourmet para festas em Guabiruba-SC.",
+            description: "Campo society, quadra poliesportiva e quadra de areia em Guabiruba-SC.",
             url: "https://www.guabisoccer.com.br",
             telephone: "+55-47-99163-5474",
             address: {

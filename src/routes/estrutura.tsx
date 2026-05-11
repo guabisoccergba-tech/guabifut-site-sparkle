@@ -7,8 +7,8 @@ import gourmetImg from "@/assets/espaco-gourmet.jpg";
 export const Route = createFileRoute("/estrutura")({
   head: () => ({
     meta: [
-      { title: "Nossa Estrutura | Campo, Quadra e Área Gourmet — GuabiSoccer" },
-      { name: "description", content: "Conheça a estrutura da GuabiSoccer: campo society sintético, quadra poliesportiva coberta, área gourmet com churrasqueira, vestiários e estacionamento." },
+      { title: "Nossa Estrutura | Campo, Quadra e Quadra de Areia — GuabiSoccer" },
+      { name: "description", content: "Conheça a estrutura da GuabiSoccer: campo society sintético, quadra poliesportiva coberta, quadra de areia, vestiários e estacionamento." },
     ],
   }),
   component: EstruturaPage,
@@ -31,11 +31,11 @@ function EstruturaPage() {
       tags: ["Coberta", "Piso emborrachado", "Multimodal", "Iluminação LED"],
     },
     {
-      title: "Espaço Gourmet / Churrasqueira",
+      title: "Quadra de Areia",
       img: gourmetImg,
       alt: "Espaço gourmet GuabiSoccer Guabiruba",
-      desc: "Área gourmet espaçosa com churrasqueiras completas, mesas, cadeiras e estrutura para receber grupos de todos os tamanhos. Perfeito para festas, aniversários e confraternizações.",
-      tags: ["Churrasqueiras", "Mesas e cadeiras", "Wi-Fi", "Estacionamento"],
+      desc: "Quadra de areia para Beach Tennis, futevôlei e vôlei de praia. Estrutura completa para lazer e prática esportiva ao ar livre.",
+      tags: ["Beach Tennis", "Futevôlei", "Vôlei de praia", "Iluminação"],
     },
   ];
 
