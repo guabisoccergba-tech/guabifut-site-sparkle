@@ -2,8 +2,14 @@ import { createFileRoute } from "@tanstack/react-router";
 import { SiteLayout } from "@/components/SiteLayout";
 import { Button } from "@/components/ui/button";
 import { WHATSAPP_RESERVE_LINK } from "@/lib/constants";
-import campoImg from "@/assets/hero-campo.jpg";
-import gourmetImg from "@/assets/espaco-gourmet.jpg";
+import g1 from "@/assets/resenha-galeria-1.jpg";
+import g2 from "@/assets/resenha-galeria-2.jpg";
+import g3 from "@/assets/resenha-galeria-3.jpg";
+import g4 from "@/assets/resenha-galeria-4.jpg";
+import g5 from "@/assets/resenha-galeria-5.jpg";
+import g6 from "@/assets/resenha-galeria-6.jpg";
+import g7 from "@/assets/resenha-galeria-7.jpg";
+import g8 from "@/assets/resenha-galeria-8.jpg";
 
 export const Route = createFileRoute("/resenha")({
   head: () => ({
@@ -65,7 +71,7 @@ function ResenhaPage() {
       <section className="mx-auto max-w-7xl px-4 py-16">
         <h2 className="mb-8 text-center text-2xl font-bold text-foreground">Galeria de Momentos</h2>
         <div className="grid gap-3 grid-cols-2 md:grid-cols-4">
-          {[campoImg, gourmetImg, campoImg, gourmetImg, campoImg, gourmetImg, campoImg, gourmetImg].map((src, i) => (
+          {[g1, g2, g3, g4, g5, g6, g7, g8].map((src, i) => (
             <div key={i} className="aspect-square overflow-hidden rounded-lg">
               <img src={src} alt={`Momento GuabiSoccer foto ${i + 1}`} loading="lazy" width={400} height={400} className="h-full w-full object-cover" />
             </div>

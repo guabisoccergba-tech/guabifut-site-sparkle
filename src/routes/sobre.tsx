@@ -1,8 +1,9 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { SiteLayout } from "@/components/SiteLayout";
-import gourmetImg from "@/assets/espaco-gourmet.jpg";
-import campoImg from "@/assets/hero-campo.jpg";
-import quadraImg from "@/assets/quadra-poliesportiva.jpg";
+import g1 from "@/assets/sobre-galeria-1.jpg";
+import g2 from "@/assets/sobre-galeria-2.jpg";
+import g3 from "@/assets/sobre-galeria-3.jpg";
+import g4 from "@/assets/sobre-galeria-4.jpg";
 
 export const Route = createFileRoute("/sobre")({
   head: () => ({
@@ -31,10 +32,10 @@ function SobrePage() {
       <section className="mx-auto max-w-5xl px-4 pb-16">
         <div className="grid gap-4 sm:grid-cols-2">
           {[
-            { src: campoImg, caption: "Fachada da GuabiSoccer" },
-            { src: gourmetImg, caption: "Área gourmet" },
-            { src: quadraImg, caption: "Vista geral do complexo" },
-            { src: gourmetImg, caption: "Espaço para eventos" },
+            { src: g1, caption: "Fachada da GuabiSoccer" },
+            { src: g2, caption: "Área gourmet" },
+            { src: g3, caption: "Vista geral do complexo" },
+            { src: g4, caption: "Espaço para eventos" },
           ].map((p, i) => (
             <figure key={i} className="overflow-hidden rounded-lg">
               <img src={p.src} alt={`${p.caption} GuabiSoccer Guabiruba`} loading="lazy" width={800} height={600} className="aspect-video w-full object-cover" />

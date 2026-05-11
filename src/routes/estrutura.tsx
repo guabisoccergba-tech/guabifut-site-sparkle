@@ -3,6 +3,15 @@ import { SiteLayout } from "@/components/SiteLayout";
 import campoImg from "@/assets/hero-campo.jpg";
 import quadraImg from "@/assets/quadra-poliesportiva.jpg";
 import gourmetImg from "@/assets/espaco-gourmet.jpg";
+import g1 from "@/assets/estrutura-galeria-1.jpg";
+import g2 from "@/assets/estrutura-galeria-2.jpg";
+import g3 from "@/assets/estrutura-galeria-3.jpg";
+import g4 from "@/assets/estrutura-galeria-4.jpg";
+import g5 from "@/assets/estrutura-galeria-5.jpg";
+import g6 from "@/assets/estrutura-galeria-6.jpg";
+import g7 from "@/assets/estrutura-galeria-7.jpg";
+import g8 from "@/assets/estrutura-galeria-8.jpg";
+import g9 from "@/assets/estrutura-galeria-9.jpg";
 
 export const Route = createFileRoute("/estrutura")({
   head: () => ({
@@ -90,7 +99,7 @@ function EstruturaPage() {
       <section className="mx-auto max-w-7xl px-4 py-16">
         <h2 className="mb-8 text-center text-2xl font-bold text-foreground">Galeria</h2>
         <div className="grid gap-3 sm:grid-cols-2 md:grid-cols-3">
-          {[campoImg, quadraImg, gourmetImg, campoImg, quadraImg, gourmetImg, campoImg, quadraImg, gourmetImg].map((src, i) => (
+          {[g1, g2, g3, g4, g5, g6, g7, g8, g9].map((src, i) => (
             <div key={i} className="aspect-video overflow-hidden rounded-lg">
               <img src={src} alt={`Estrutura GuabiSoccer Guabiruba foto ${i + 1}`} loading="lazy" width={800} height={600} className="h-full w-full object-cover" />
             </div>

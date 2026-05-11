@@ -2,8 +2,12 @@ import { createFileRoute } from "@tanstack/react-router";
 import { SiteLayout } from "@/components/SiteLayout";
 import { Button } from "@/components/ui/button";
 import { WHATSAPP_EVENT_LINK } from "@/lib/constants";
-import gourmetImg from "@/assets/espaco-gourmet.jpg";
-import campoImg from "@/assets/hero-campo.jpg";
+import g1 from "@/assets/eventos-galeria-1.jpg";
+import g2 from "@/assets/eventos-galeria-2.jpg";
+import g3 from "@/assets/eventos-galeria-3.jpg";
+import g4 from "@/assets/eventos-galeria-4.jpg";
+import g5 from "@/assets/eventos-galeria-5.jpg";
+import g6 from "@/assets/eventos-galeria-6.jpg";
 
 export const Route = createFileRoute("/eventos")({
   head: () => ({
@@ -61,7 +65,7 @@ function EventosPage() {
       <section className="mx-auto max-w-7xl px-4 py-16">
         <h2 className="mb-8 text-center text-2xl font-bold text-foreground">Galeria de Eventos</h2>
         <div className="grid gap-3 sm:grid-cols-2 md:grid-cols-3">
-          {[gourmetImg, campoImg, gourmetImg, campoImg, gourmetImg, campoImg].map((src, i) => (
+          {[g1, g2, g3, g4, g5, g6].map((src, i) => (
             <div key={i} className="aspect-video overflow-hidden rounded-lg">
               <img src={src} alt={`Evento GuabiSoccer foto ${i + 1}`} loading="lazy" width={800} height={600} className="h-full w-full object-cover" />
             </div>
