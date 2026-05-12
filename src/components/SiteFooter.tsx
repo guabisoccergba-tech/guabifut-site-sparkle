@@ -57,7 +57,7 @@ export function SiteFooter() {
           <h3 className="mb-3 text-sm font-semibold uppercase tracking-wider text-primary-foreground/60">Localização</h3>
           <div className="overflow-hidden rounded-lg">
             <iframe
-              src="https://www.google.com/maps/place/GuabiSoccer/@-27.104591,-49.0090903,17z/data=!3m1!4b1!4m6!3m5!1s0x94df3fe8e80794e9:0xbd1dff73c6730972!8m2!3d-27.104591!4d-49.0090903!16s%2Fg%2F11ghp0ds9b?entry=ttu&g_ep=EgoyMDI2MDUwNi4wIKXMDSoASAFQAw%3D%3D"
+              src="https://www.google.com/maps?q=GuabiSoccer&ll=-27.104591,-49.0090903&z=17&output=embed"
               width="100%"
               height="180"
               style={{ border: 0 }}
