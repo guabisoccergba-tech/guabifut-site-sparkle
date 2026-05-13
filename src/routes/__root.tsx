@@ -72,6 +72,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
+      { name: "google-site-verification", content: "HKWr9qFNql7kIXnfOKRsXmJQDp56zP1Tw_-B40W-6Lc" },
       { title: "GuabiSoccer | Campo Society e Espaço para Festas em Guabiruba-SC" },
       { name: "description", content: "Campo society, quadra poliesportiva e espaço gourmet para festas em Guabiruba-SC." },
       { name: "author", content: "GuabiSoccer" },
