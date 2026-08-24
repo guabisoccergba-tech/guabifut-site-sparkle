@@ -14,16 +14,347 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      blocks: {
+        Row: {
+          block_date: string
+          court_id: string
+          created_at: string
+          end_time: string
+          id: string
+          reason: string | null
+          start_time: string
+        }
+        Insert: {
+          block_date: string
+          court_id: string
+          created_at?: string
+          end_time: string
+          id?: string
+          reason?: string | null
+          start_time: string
+        }
+        Update: {
+          block_date?: string
+          court_id?: string
+          created_at?: string
+          end_time?: string
+          id?: string
+          reason?: string | null
+          start_time?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "blocks_court_id_fkey"
+            columns: ["court_id"]
+            isOneToOne: false
+            referencedRelation: "courts"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      bookings: {
+        Row: {
+          base_price: number
+          booking_date: string
+          court_id: string
+          created_at: string
+          customer_email: string | null
+          customer_name: string
+          customer_phone: string
+          discount_percent: number
+          end_time: string
+          final_price: number
+          id: string
+          notes: string | null
+          promotion_id: string | null
+          start_time: string
+          status: Database["public"]["Enums"]["booking_status"]
+          updated_at: string
+          user_id: string | null
+        }
+        Insert: {
+          base_price?: number
+          booking_date: string
+          court_id: string
+          created_at?: string
+          customer_email?: string | null
+          customer_name: string
+          customer_phone: string
+          discount_percent?: number
+          end_time: string
+          final_price?: number
+          id?: string
+          notes?: string | null
+          promotion_id?: string | null
+          start_time: string
+          status?: Database["public"]["Enums"]["booking_status"]
+          updated_at?: string
+          user_id?: string | null
+        }
+        Update: {
+          base_price?: number
+          booking_date?: string
+          court_id?: string
+          created_at?: string
+          customer_email?: string | null
+          customer_name?: string
+          customer_phone?: string
+          discount_percent?: number
+          end_time?: string
+          final_price?: number
+          id?: string
+          notes?: string | null
+          promotion_id?: string | null
+          start_time?: string
+          status?: Database["public"]["Enums"]["booking_status"]
+          updated_at?: string
+          user_id?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "bookings_court_id_fkey"
+            columns: ["court_id"]
+            isOneToOne: false
+            referencedRelation: "courts"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "bookings_promotion_id_fkey"
+            columns: ["promotion_id"]
+            isOneToOne: false
+            referencedRelation: "promotions"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      courts: {
+        Row: {
+          active: boolean
+          created_at: string
+          description: string | null
+          id: string
+          image_url: string | null
+          kind: string
+          name: string
+          price_per_hour: number
+          slot_minutes: number
+          sort_order: number
+          updated_at: string
+        }
+        Insert: {
+          active?: boolean
+          created_at?: string
+          description?: string | null
+          id?: string
+          image_url?: string | null
+          kind?: string
+          name: string
+          price_per_hour?: number
+          slot_minutes?: number
+          sort_order?: number
+          updated_at?: string
+        }
+        Update: {
+          active?: boolean
+          created_at?: string
+          description?: string | null
+          id?: string
+          image_url?: string | null
+          kind?: string
+          name?: string
+          price_per_hour?: number
+          slot_minutes?: number
+          sort_order?: number
+          updated_at?: string
+        }
+        Relationships: []
+      }
+      opening_hours: {
+        Row: {
+          closed: boolean
+          court_id: string
+          created_at: string
+          id: string
+          last_start_time: string
+          open_time: string
+          weekday: number
+        }
+        Insert: {
+          closed?: boolean
+          court_id: string
+          created_at?: string
+          id?: string
+          last_start_time: string
+          open_time: string
+          weekday: number
+        }
+        Update: {
+          closed?: boolean
+          court_id?: string
+          created_at?: string
+          id?: string
+          last_start_time?: string
+          open_time?: string
+          weekday?: number
+        }
+        Relationships: [
+          {
+            foreignKeyName: "opening_hours_court_id_fkey"
+            columns: ["court_id"]
+            isOneToOne: false
+            referencedRelation: "courts"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      profiles: {
+        Row: {
+          created_at: string
+          email: string | null
+          full_name: string | null
+          id: string
+          phone: string | null
+          updated_at: string
+        }
+        Insert: {
+          created_at?: string
+          email?: string | null
+          full_name?: string | null
+          id: string
+          phone?: string | null
+          updated_at?: string
+        }
+        Update: {
+          created_at?: string
+          email?: string | null
+          full_name?: string | null
+          id?: string
+          phone?: string | null
+          updated_at?: string
+        }
+        Relationships: []
+      }
+      promotions: {
+        Row: {
+          active: boolean
+          court_id: string | null
+          created_at: string
+          discount_percent: number
+          end_time: string
+          id: string
+          specific_date: string | null
+          start_time: string
+          title: string
+          updated_at: string
+          valid_from: string | null
+          valid_to: string | null
+          weekday: number | null
+        }
+        Insert: {
+          active?: boolean
+          court_id?: string | null
+          created_at?: string
+          discount_percent: number
+          end_time?: string
+          id?: string
+          specific_date?: string | null
+          start_time?: string
+          title: string
+          updated_at?: string
+          valid_from?: string | null
+          valid_to?: string | null
+          weekday?: number | null
+        }
+        Update: {
+          active?: boolean
+          court_id?: string | null
+          created_at?: string
+          discount_percent?: number
+          end_time?: string
+          id?: string
+          specific_date?: string | null
+          start_time?: string
+          title?: string
+          updated_at?: string
+          valid_from?: string | null
+          valid_to?: string | null
+          weekday?: number | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "promotions_court_id_fkey"
+            columns: ["court_id"]
+            isOneToOne: false
+            referencedRelation: "courts"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      user_roles: {
+        Row: {
+          created_at: string
+          id: string
+          role: Database["public"]["Enums"]["app_role"]
+          user_id: string
+        }
+        Insert: {
+          created_at?: string
+          id?: string
+          role: Database["public"]["Enums"]["app_role"]
+          user_id: string
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          role?: Database["public"]["Enums"]["app_role"]
+          user_id?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
-      [_ in never]: never
+      booked_slots: {
+        Row: {
+          booking_date: string | null
+          court_id: string | null
+          end_time: string | null
+          start_time: string | null
+        }
+        Insert: {
+          booking_date?: string | null
+          court_id?: string | null
+          end_time?: string | null
+          start_time?: string | null
+        }
+        Update: {
+          booking_date?: string | null
+          court_id?: string | null
+          end_time?: string | null
+          start_time?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "bookings_court_id_fkey"
+            columns: ["court_id"]
+            isOneToOne: false
+            referencedRelation: "courts"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
     }
     Functions: {
-      [_ in never]: never
+      has_role: {
+        Args: {
+          _role: Database["public"]["Enums"]["app_role"]
+          _user_id: string
+        }
+        Returns: boolean
+      }
     }
     Enums: {
-      [_ in never]: never
+      app_role: "admin" | "user"
+      booking_status: "pendente" | "confirmada" | "cancelada"
     }
     CompositeTypes: {
       [_ in never]: never
@@ -150,6 +481,9 @@ export type CompositeTypes<
 
 export const Constants = {
   public: {
-    Enums: {},
+    Enums: {
+      app_role: ["admin", "user"],
+      booking_status: ["pendente", "confirmada", "cancelada"],
+    },
   },
 } as const
