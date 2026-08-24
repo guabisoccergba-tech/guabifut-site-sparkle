@@ -313,35 +313,7 @@ export type Database = {
       }
     }
     Views: {
-      booked_slots: {
-        Row: {
-          booking_date: string | null
-          court_id: string | null
-          end_time: string | null
-          start_time: string | null
-        }
-        Insert: {
-          booking_date?: string | null
-          court_id?: string | null
-          end_time?: string | null
-          start_time?: string | null
-        }
-        Update: {
-          booking_date?: string | null
-          court_id?: string | null
-          end_time?: string | null
-          start_time?: string | null
-        }
-        Relationships: [
-          {
-            foreignKeyName: "bookings_court_id_fkey"
-            columns: ["court_id"]
-            isOneToOne: false
-            referencedRelation: "courts"
-            referencedColumns: ["id"]
-          },
-        ]
-      }
+      [_ in never]: never
     }
     Functions: {
       has_role: {
