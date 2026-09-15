@@ -152,7 +152,7 @@ export const adminRunRaffle = createServerFn({ method: "POST" })
       let value: number;
       do {
         crypto.getRandomValues(buf);
-        value = buf[0]!;
+        value = buf[0] ?? 0;
       } while (value >= limit);
       return value % max;
     };
@@ -181,7 +181,11 @@ export const adminRunRaffle = createServerFn({ method: "POST" })
       detail: detailOf(p),
       is_winner: p.id === winner.id,
     }));
-    await context.supabase.from("raffle_entries").insert(entries);
+    const { error: entriesError } = await context.supabase.from("raffle_entries").insert(entries);
+    if (entriesError) {
+      await context.supabase.from("raffles").delete().eq("id", raffle.id);
+      throw new Error(entriesError.message);
+    }
 
     return {
       raffle,

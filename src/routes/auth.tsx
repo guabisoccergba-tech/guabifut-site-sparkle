@@ -36,15 +36,21 @@ function AuthPage() {
       if (mode === "login") {
         const { error } = await supabase.auth.signInWithPassword({ email, password });
         if (error) throw error;
+        await supabase.rpc("claim_initial_admin");
         navigate({ to: "/admin/sorteio" });
       } else {
-        const { error } = await supabase.auth.signUp({
+        const { data, error } = await supabase.auth.signUp({
           email,
           password,
           options: { emailRedirectTo: `${window.location.origin}/admin/sorteio` },
         });
         if (error) throw error;
-        setMessage("Conta criada. Se pedir confirmação, verifique seu e-mail.");
+        if (data.session) {
+          await supabase.rpc("claim_initial_admin");
+          navigate({ to: "/admin/sorteio" });
+        } else {
+          setMessage("Conta criada. Se pedir confirmação, verifique seu e-mail e depois entre.");
+        }
       }
     } catch (err: any) {
       setMessage(err?.message ?? "Não foi possível entrar.");
