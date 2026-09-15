@@ -15,7 +15,11 @@ import { Route as JogosRouteImport } from './routes/jogos'
 import { Route as HorariosRouteImport } from './routes/horarios'
 import { Route as EventosRouteImport } from './routes/eventos'
 import { Route as EstruturaRouteImport } from './routes/estrutura'
+import { Route as AuthRouteImport } from './routes/auth'
+import { Route as AuthenticatedRouteRouteImport } from './routes/_authenticated/route'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AuthenticatedAdminSorteioRouteImport } from './routes/_authenticated/admin/sorteio'
+import { Route as AuthenticatedAdminMensalistasRouteImport } from './routes/_authenticated/admin/mensalistas'
 
 const SobreRoute = SobreRouteImport.update({
   id: '/sobre',
@@ -47,72 +51,115 @@ const EstruturaRoute = EstruturaRouteImport.update({
   path: '/estrutura',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AuthRoute = AuthRouteImport.update({
+  id: '/auth',
+  path: '/auth',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AuthenticatedRouteRoute = AuthenticatedRouteRouteImport.update({
+  id: '/_authenticated',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AuthenticatedAdminSorteioRoute =
+  AuthenticatedAdminSorteioRouteImport.update({
+    id: '/admin/sorteio',
+    path: '/admin/sorteio',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any)
+const AuthenticatedAdminMensalistasRoute =
+  AuthenticatedAdminMensalistasRouteImport.update({
+    id: '/admin/mensalistas',
+    path: '/admin/mensalistas',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/auth': typeof AuthRoute
   '/estrutura': typeof EstruturaRoute
   '/eventos': typeof EventosRoute
   '/horarios': typeof HorariosRoute
   '/jogos': typeof JogosRoute
   '/resenha': typeof ResenhaRoute
   '/sobre': typeof SobreRoute
+  '/admin/mensalistas': typeof AuthenticatedAdminMensalistasRoute
+  '/admin/sorteio': typeof AuthenticatedAdminSorteioRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/auth': typeof AuthRoute
   '/estrutura': typeof EstruturaRoute
   '/eventos': typeof EventosRoute
   '/horarios': typeof HorariosRoute
   '/jogos': typeof JogosRoute
   '/resenha': typeof ResenhaRoute
   '/sobre': typeof SobreRoute
+  '/admin/mensalistas': typeof AuthenticatedAdminMensalistasRoute
+  '/admin/sorteio': typeof AuthenticatedAdminSorteioRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/_authenticated': typeof AuthenticatedRouteRouteWithChildren
+  '/auth': typeof AuthRoute
   '/estrutura': typeof EstruturaRoute
   '/eventos': typeof EventosRoute
   '/horarios': typeof HorariosRoute
   '/jogos': typeof JogosRoute
   '/resenha': typeof ResenhaRoute
   '/sobre': typeof SobreRoute
+  '/_authenticated/admin/mensalistas': typeof AuthenticatedAdminMensalistasRoute
+  '/_authenticated/admin/sorteio': typeof AuthenticatedAdminSorteioRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/auth'
     | '/estrutura'
     | '/eventos'
     | '/horarios'
     | '/jogos'
     | '/resenha'
     | '/sobre'
+    | '/admin/mensalistas'
+    | '/admin/sorteio'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/auth'
     | '/estrutura'
     | '/eventos'
     | '/horarios'
     | '/jogos'
     | '/resenha'
     | '/sobre'
+    | '/admin/mensalistas'
+    | '/admin/sorteio'
   id:
     | '__root__'
     | '/'
+    | '/_authenticated'
+    | '/auth'
     | '/estrutura'
     | '/eventos'
     | '/horarios'
     | '/jogos'
     | '/resenha'
     | '/sobre'
+    | '/_authenticated/admin/mensalistas'
+    | '/_authenticated/admin/sorteio'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AuthenticatedRouteRoute: typeof AuthenticatedRouteRouteWithChildren
+  AuthRoute: typeof AuthRoute
   EstruturaRoute: typeof EstruturaRoute
   EventosRoute: typeof EventosRoute
   HorariosRoute: typeof HorariosRoute
@@ -165,6 +212,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof EstruturaRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/auth': {
+      id: '/auth'
+      path: '/auth'
+      fullPath: '/auth'
+      preLoaderRoute: typeof AuthRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/_authenticated': {
+      id: '/_authenticated'
+      path: ''
+      fullPath: '/'
+      preLoaderRoute: typeof AuthenticatedRouteRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -172,11 +233,40 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/_authenticated/admin/sorteio': {
+      id: '/_authenticated/admin/sorteio'
+      path: '/admin/sorteio'
+      fullPath: '/admin/sorteio'
+      preLoaderRoute: typeof AuthenticatedAdminSorteioRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/admin/mensalistas': {
+      id: '/_authenticated/admin/mensalistas'
+      path: '/admin/mensalistas'
+      fullPath: '/admin/mensalistas'
+      preLoaderRoute: typeof AuthenticatedAdminMensalistasRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
   }
 }
 
+interface AuthenticatedRouteRouteChildren {
+  AuthenticatedAdminMensalistasRoute: typeof AuthenticatedAdminMensalistasRoute
+  AuthenticatedAdminSorteioRoute: typeof AuthenticatedAdminSorteioRoute
+}
+
+const AuthenticatedRouteRouteChildren: AuthenticatedRouteRouteChildren = {
+  AuthenticatedAdminMensalistasRoute: AuthenticatedAdminMensalistasRoute,
+  AuthenticatedAdminSorteioRoute: AuthenticatedAdminSorteioRoute,
+}
+
+const AuthenticatedRouteRouteWithChildren =
+  AuthenticatedRouteRoute._addFileChildren(AuthenticatedRouteRouteChildren)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AuthenticatedRouteRoute: AuthenticatedRouteRouteWithChildren,
+  AuthRoute: AuthRoute,
   EstruturaRoute: EstruturaRoute,
   EventosRoute: EventosRoute,
   HorariosRoute: HorariosRoute,
