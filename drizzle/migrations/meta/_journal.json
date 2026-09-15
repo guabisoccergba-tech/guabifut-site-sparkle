@@ -8,6 +8,13 @@
       "when": 1789483712000,
       "tag": "0000_mensalistas_e_sorteio",
       "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1789492150370,
+      "tag": "0001_permitir_primeiro_administrador",
+      "breakpoints": true
     }
   ]
 }
