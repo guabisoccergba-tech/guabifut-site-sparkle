@@ -65,6 +65,9 @@ export type Database = {
           end_time: string
           final_price: number
           id: string
+          is_monthly: boolean
+          monthly_active: boolean
+          monthly_weekday: number | null
           notes: string | null
           promotion_id: string | null
           start_time: string
@@ -84,6 +87,9 @@ export type Database = {
           end_time: string
           final_price?: number
           id?: string
+          is_monthly?: boolean
+          monthly_active?: boolean
+          monthly_weekday?: number | null
           notes?: string | null
           promotion_id?: string | null
           start_time: string
@@ -103,6 +109,9 @@ export type Database = {
           end_time?: string
           final_price?: number
           id?: string
+          is_monthly?: boolean
+          monthly_active?: boolean
+          monthly_weekday?: number | null
           notes?: string | null
           promotion_id?: string | null
           start_time?: string
@@ -289,6 +298,80 @@ export type Database = {
             referencedColumns: ["id"]
           },
         ]
+      }
+      raffle_entries: {
+        Row: {
+          created_at: string
+          detail: string | null
+          id: string
+          is_winner: boolean
+          name: string
+          phone: string | null
+          raffle_id: string
+        }
+        Insert: {
+          created_at?: string
+          detail?: string | null
+          id?: string
+          is_winner?: boolean
+          name: string
+          phone?: string | null
+          raffle_id: string
+        }
+        Update: {
+          created_at?: string
+          detail?: string | null
+          id?: string
+          is_winner?: boolean
+          name?: string
+          phone?: string | null
+          raffle_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "raffle_entries_raffle_id_fkey"
+            columns: ["raffle_id"]
+            isOneToOne: false
+            referencedRelation: "raffles"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      raffles: {
+        Row: {
+          created_at: string
+          created_by: string | null
+          entries_count: number
+          id: string
+          prize: string
+          raffle_date: string
+          winner_detail: string | null
+          winner_name: string | null
+          winner_phone: string | null
+        }
+        Insert: {
+          created_at?: string
+          created_by?: string | null
+          entries_count?: number
+          id?: string
+          prize: string
+          raffle_date?: string
+          winner_detail?: string | null
+          winner_name?: string | null
+          winner_phone?: string | null
+        }
+        Update: {
+          created_at?: string
+          created_by?: string | null
+          entries_count?: number
+          id?: string
+          prize?: string
+          raffle_date?: string
+          winner_detail?: string | null
+          winner_name?: string | null
+          winner_phone?: string | null
+        }
+        Relationships: []
       }
       user_roles: {
         Row: {
