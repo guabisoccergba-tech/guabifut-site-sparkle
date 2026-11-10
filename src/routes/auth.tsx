@@ -28,6 +28,13 @@ function AuthPage() {
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState<string | null>(null);
 
+  async function goNext() {
+    await supabase.rpc("claim_initial_admin");
+    const { data: u } = await supabase.auth.getUser();
+    const { data: isAdmin } = await supabase.rpc("has_role", { _user_id: u.user!.id, _role: "admin" });
+    navigate({ to: isAdmin ? "/admin/sorteio" : "/grupos" });
+  }
+
   async function submit(e: React.FormEvent) {
     e.preventDefault();
     setLoading(true);
@@ -36,18 +43,16 @@ function AuthPage() {
       if (mode === "login") {
         const { error } = await supabase.auth.signInWithPassword({ email, password });
         if (error) throw error;
-        await supabase.rpc("claim_initial_admin");
-        navigate({ to: "/admin/sorteio" });
+        await goNext();
       } else {
         const { data, error } = await supabase.auth.signUp({
           email,
           password,
-          options: { emailRedirectTo: `${window.location.origin}/admin/sorteio` },
+          options: { emailRedirectTo: `${window.location.origin}/grupos` },
         });
         if (error) throw error;
         if (data.session) {
-          await supabase.rpc("claim_initial_admin");
-          navigate({ to: "/admin/sorteio" });
+          await goNext();
         } else {
           setMessage("Conta criada. Se pedir confirmação, verifique seu e-mail e depois entre.");
         }
@@ -62,8 +67,8 @@ function AuthPage() {
   return (
     <main className="flex min-h-screen items-center justify-center bg-background px-4">
       <div className="w-full max-w-sm rounded-xl border border-border bg-card p-6 shadow-sm">
-        <h1 className="text-xl font-bold text-foreground">Acesso restrito</h1>
-        <p className="mt-1 text-sm text-muted-foreground">Área da administração GuabiSoccer.</p>
+        <h1 className="text-xl font-bold text-foreground">Entrar</h1>
+        <p className="mt-1 text-sm text-muted-foreground">Acesse seus grupos de jogo ou a administração GuabiSoccer.</p>
 
         <form onSubmit={submit} className="mt-6 space-y-4">
           <div className="space-y-2">

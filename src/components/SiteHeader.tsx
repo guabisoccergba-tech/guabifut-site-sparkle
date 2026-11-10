@@ -12,6 +12,7 @@ const navLinks = [
   { to: "/eventos", label: "Eventos" },
   { to: "/horarios", label: "Horários" },
   { to: "/resenha", label: "Resenha" },
+  { to: "/grupos", label: "Grupos" },
 ] as const;
 
 export function SiteHeader() {
