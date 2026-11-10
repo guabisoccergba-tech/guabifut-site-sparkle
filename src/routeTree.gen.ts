@@ -9,48 +9,27 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
-import { Route as SobreRouteImport } from './routes/sobre'
-import { Route as ResenhaRouteImport } from './routes/resenha'
-import { Route as JogosRouteImport } from './routes/jogos'
-import { Route as HorariosRouteImport } from './routes/horarios'
-import { Route as EventosRouteImport } from './routes/eventos'
-import { Route as EstruturaRouteImport } from './routes/estrutura'
-import { Route as AuthRouteImport } from './routes/auth'
-import { Route as AuthenticatedRouteRouteImport } from './routes/_authenticated/route'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AuthenticatedRouteRouteImport } from './routes/_authenticated/route'
+import { Route as AuthRouteImport } from './routes/auth'
+import { Route as EstruturaRouteImport } from './routes/estrutura'
+import { Route as EventosRouteImport } from './routes/eventos'
+import { Route as HorariosRouteImport } from './routes/horarios'
+import { Route as JogosRouteImport } from './routes/jogos'
+import { Route as ResenhaRouteImport } from './routes/resenha'
+import { Route as SobreRouteImport } from './routes/sobre'
+import { Route as AuthenticatedAdminMensalistasRouteImport } from './routes/_authenticated/admin/mensalistas'
+import { Route as AuthenticatedAdminSorteioRouteImport } from './routes/_authenticated/admin/sorteio'
 import { Route as AuthenticatedGruposIndexRouteImport } from './routes/_authenticated/grupos/index'
 import { Route as AuthenticatedGruposGroupIdRouteImport } from './routes/_authenticated/grupos/$groupId'
-import { Route as AuthenticatedAdminSorteioRouteImport } from './routes/_authenticated/admin/sorteio'
-import { Route as AuthenticatedAdminMensalistasRouteImport } from './routes/_authenticated/admin/mensalistas'
 
-const SobreRoute = SobreRouteImport.update({
-  id: '/sobre',
-  path: '/sobre',
+const IndexRoute = IndexRouteImport.update({
+  id: '/',
+  path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
-const ResenhaRoute = ResenhaRouteImport.update({
-  id: '/resenha',
-  path: '/resenha',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const JogosRoute = JogosRouteImport.update({
-  id: '/jogos',
-  path: '/jogos',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const HorariosRoute = HorariosRouteImport.update({
-  id: '/horarios',
-  path: '/horarios',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const EventosRoute = EventosRouteImport.update({
-  id: '/eventos',
-  path: '/eventos',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const EstruturaRoute = EstruturaRouteImport.update({
-  id: '/estrutura',
-  path: '/estrutura',
+const AuthenticatedRouteRoute = AuthenticatedRouteRouteImport.update({
+  id: '/_authenticated',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AuthRoute = AuthRouteImport.update({
@@ -58,15 +37,48 @@ const AuthRoute = AuthRouteImport.update({
   path: '/auth',
   getParentRoute: () => rootRouteImport,
 } as any)
-const AuthenticatedRouteRoute = AuthenticatedRouteRouteImport.update({
-  id: '/_authenticated',
+const EstruturaRoute = EstruturaRouteImport.update({
+  id: '/estrutura',
+  path: '/estrutura',
   getParentRoute: () => rootRouteImport,
 } as any)
-const IndexRoute = IndexRouteImport.update({
-  id: '/',
-  path: '/',
+const EventosRoute = EventosRouteImport.update({
+  id: '/eventos',
+  path: '/eventos',
   getParentRoute: () => rootRouteImport,
 } as any)
+const HorariosRoute = HorariosRouteImport.update({
+  id: '/horarios',
+  path: '/horarios',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const JogosRoute = JogosRouteImport.update({
+  id: '/jogos',
+  path: '/jogos',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ResenhaRoute = ResenhaRouteImport.update({
+  id: '/resenha',
+  path: '/resenha',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SobreRoute = SobreRouteImport.update({
+  id: '/sobre',
+  path: '/sobre',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AuthenticatedAdminMensalistasRoute =
+  AuthenticatedAdminMensalistasRouteImport.update({
+    id: '/admin/mensalistas',
+    path: '/admin/mensalistas',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any)
+const AuthenticatedAdminSorteioRoute =
+  AuthenticatedAdminSorteioRouteImport.update({
+    id: '/admin/sorteio',
+    path: '/admin/sorteio',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any)
 const AuthenticatedGruposIndexRoute =
   AuthenticatedGruposIndexRouteImport.update({
     id: '/grupos/',
@@ -77,18 +89,6 @@ const AuthenticatedGruposGroupIdRoute =
   AuthenticatedGruposGroupIdRouteImport.update({
     id: '/grupos/$groupId',
     path: '/grupos/$groupId',
-    getParentRoute: () => AuthenticatedRouteRoute,
-  } as any)
-const AuthenticatedAdminSorteioRoute =
-  AuthenticatedAdminSorteioRouteImport.update({
-    id: '/admin/sorteio',
-    path: '/admin/sorteio',
-    getParentRoute: () => AuthenticatedRouteRoute,
-  } as any)
-const AuthenticatedAdminMensalistasRoute =
-  AuthenticatedAdminMensalistasRouteImport.update({
-    id: '/admin/mensalistas',
-    path: '/admin/mensalistas',
     getParentRoute: () => AuthenticatedRouteRoute,
   } as any)
 
@@ -196,53 +196,11 @@ export interface RootRouteChildren {
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/sobre': {
-      id: '/sobre'
-      path: '/sobre'
-      fullPath: '/sobre'
-      preLoaderRoute: typeof SobreRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/resenha': {
-      id: '/resenha'
-      path: '/resenha'
-      fullPath: '/resenha'
-      preLoaderRoute: typeof ResenhaRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/jogos': {
-      id: '/jogos'
-      path: '/jogos'
-      fullPath: '/jogos'
-      preLoaderRoute: typeof JogosRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/horarios': {
-      id: '/horarios'
-      path: '/horarios'
-      fullPath: '/horarios'
-      preLoaderRoute: typeof HorariosRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/eventos': {
-      id: '/eventos'
-      path: '/eventos'
-      fullPath: '/eventos'
-      preLoaderRoute: typeof EventosRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/estrutura': {
-      id: '/estrutura'
-      path: '/estrutura'
-      fullPath: '/estrutura'
-      preLoaderRoute: typeof EstruturaRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/auth': {
-      id: '/auth'
-      path: '/auth'
-      fullPath: '/auth'
-      preLoaderRoute: typeof AuthRouteImport
+    '/': {
+      id: '/'
+      path: '/'
+      fullPath: '/'
+      preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/_authenticated': {
@@ -252,12 +210,68 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthenticatedRouteRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/': {
-      id: '/'
-      path: '/'
-      fullPath: '/'
-      preLoaderRoute: typeof IndexRouteImport
+    '/auth': {
+      id: '/auth'
+      path: '/auth'
+      fullPath: '/auth'
+      preLoaderRoute: typeof AuthRouteImport
       parentRoute: typeof rootRouteImport
+    }
+    '/estrutura': {
+      id: '/estrutura'
+      path: '/estrutura'
+      fullPath: '/estrutura'
+      preLoaderRoute: typeof EstruturaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/eventos': {
+      id: '/eventos'
+      path: '/eventos'
+      fullPath: '/eventos'
+      preLoaderRoute: typeof EventosRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/horarios': {
+      id: '/horarios'
+      path: '/horarios'
+      fullPath: '/horarios'
+      preLoaderRoute: typeof HorariosRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/jogos': {
+      id: '/jogos'
+      path: '/jogos'
+      fullPath: '/jogos'
+      preLoaderRoute: typeof JogosRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/resenha': {
+      id: '/resenha'
+      path: '/resenha'
+      fullPath: '/resenha'
+      preLoaderRoute: typeof ResenhaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/sobre': {
+      id: '/sobre'
+      path: '/sobre'
+      fullPath: '/sobre'
+      preLoaderRoute: typeof SobreRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/_authenticated/admin/mensalistas': {
+      id: '/_authenticated/admin/mensalistas'
+      path: '/admin/mensalistas'
+      fullPath: '/admin/mensalistas'
+      preLoaderRoute: typeof AuthenticatedAdminMensalistasRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/admin/sorteio': {
+      id: '/_authenticated/admin/sorteio'
+      path: '/admin/sorteio'
+      fullPath: '/admin/sorteio'
+      preLoaderRoute: typeof AuthenticatedAdminSorteioRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
     }
     '/_authenticated/grupos/': {
       id: '/_authenticated/grupos/'
@@ -271,20 +285,6 @@ declare module '@tanstack/react-router' {
       path: '/grupos/$groupId'
       fullPath: '/grupos/$groupId'
       preLoaderRoute: typeof AuthenticatedGruposGroupIdRouteImport
-      parentRoute: typeof AuthenticatedRouteRoute
-    }
-    '/_authenticated/admin/sorteio': {
-      id: '/_authenticated/admin/sorteio'
-      path: '/admin/sorteio'
-      fullPath: '/admin/sorteio'
-      preLoaderRoute: typeof AuthenticatedAdminSorteioRouteImport
-      parentRoute: typeof AuthenticatedRouteRoute
-    }
-    '/_authenticated/admin/mensalistas': {
-      id: '/_authenticated/admin/mensalistas'
-      path: '/admin/mensalistas'
-      fullPath: '/admin/mensalistas'
-      preLoaderRoute: typeof AuthenticatedAdminMensalistasRouteImport
       parentRoute: typeof AuthenticatedRouteRoute
     }
   }
