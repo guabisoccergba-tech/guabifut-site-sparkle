@@ -18,6 +18,8 @@ import { Route as EstruturaRouteImport } from './routes/estrutura'
 import { Route as AuthRouteImport } from './routes/auth'
 import { Route as AuthenticatedRouteRouteImport } from './routes/_authenticated/route'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AuthenticatedGruposIndexRouteImport } from './routes/_authenticated/grupos/index'
+import { Route as AuthenticatedGruposGroupIdRouteImport } from './routes/_authenticated/grupos/$groupId'
 import { Route as AuthenticatedAdminSorteioRouteImport } from './routes/_authenticated/admin/sorteio'
 import { Route as AuthenticatedAdminMensalistasRouteImport } from './routes/_authenticated/admin/mensalistas'
 
@@ -65,6 +67,18 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AuthenticatedGruposIndexRoute =
+  AuthenticatedGruposIndexRouteImport.update({
+    id: '/grupos/',
+    path: '/grupos/',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any)
+const AuthenticatedGruposGroupIdRoute =
+  AuthenticatedGruposGroupIdRouteImport.update({
+    id: '/grupos/$groupId',
+    path: '/grupos/$groupId',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any)
 const AuthenticatedAdminSorteioRoute =
   AuthenticatedAdminSorteioRouteImport.update({
     id: '/admin/sorteio',
@@ -89,6 +103,8 @@ export interface FileRoutesByFullPath {
   '/sobre': typeof SobreRoute
   '/admin/mensalistas': typeof AuthenticatedAdminMensalistasRoute
   '/admin/sorteio': typeof AuthenticatedAdminSorteioRoute
+  '/grupos/$groupId': typeof AuthenticatedGruposGroupIdRoute
+  '/grupos/': typeof AuthenticatedGruposIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -101,6 +117,8 @@ export interface FileRoutesByTo {
   '/sobre': typeof SobreRoute
   '/admin/mensalistas': typeof AuthenticatedAdminMensalistasRoute
   '/admin/sorteio': typeof AuthenticatedAdminSorteioRoute
+  '/grupos/$groupId': typeof AuthenticatedGruposGroupIdRoute
+  '/grupos': typeof AuthenticatedGruposIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -115,6 +133,8 @@ export interface FileRoutesById {
   '/sobre': typeof SobreRoute
   '/_authenticated/admin/mensalistas': typeof AuthenticatedAdminMensalistasRoute
   '/_authenticated/admin/sorteio': typeof AuthenticatedAdminSorteioRoute
+  '/_authenticated/grupos/$groupId': typeof AuthenticatedGruposGroupIdRoute
+  '/_authenticated/grupos/': typeof AuthenticatedGruposIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -129,6 +149,8 @@ export interface FileRouteTypes {
     | '/sobre'
     | '/admin/mensalistas'
     | '/admin/sorteio'
+    | '/grupos/$groupId'
+    | '/grupos/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -141,6 +163,8 @@ export interface FileRouteTypes {
     | '/sobre'
     | '/admin/mensalistas'
     | '/admin/sorteio'
+    | '/grupos/$groupId'
+    | '/grupos'
   id:
     | '__root__'
     | '/'
@@ -154,6 +178,8 @@ export interface FileRouteTypes {
     | '/sobre'
     | '/_authenticated/admin/mensalistas'
     | '/_authenticated/admin/sorteio'
+    | '/_authenticated/grupos/$groupId'
+    | '/_authenticated/grupos/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -233,6 +259,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/_authenticated/grupos/': {
+      id: '/_authenticated/grupos/'
+      path: '/grupos'
+      fullPath: '/grupos/'
+      preLoaderRoute: typeof AuthenticatedGruposIndexRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/grupos/$groupId': {
+      id: '/_authenticated/grupos/$groupId'
+      path: '/grupos/$groupId'
+      fullPath: '/grupos/$groupId'
+      preLoaderRoute: typeof AuthenticatedGruposGroupIdRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
     '/_authenticated/admin/sorteio': {
       id: '/_authenticated/admin/sorteio'
       path: '/admin/sorteio'
@@ -253,11 +293,15 @@ declare module '@tanstack/react-router' {
 interface AuthenticatedRouteRouteChildren {
   AuthenticatedAdminMensalistasRoute: typeof AuthenticatedAdminMensalistasRoute
   AuthenticatedAdminSorteioRoute: typeof AuthenticatedAdminSorteioRoute
+  AuthenticatedGruposGroupIdRoute: typeof AuthenticatedGruposGroupIdRoute
+  AuthenticatedGruposIndexRoute: typeof AuthenticatedGruposIndexRoute
 }
 
 const AuthenticatedRouteRouteChildren: AuthenticatedRouteRouteChildren = {
   AuthenticatedAdminMensalistasRoute: AuthenticatedAdminMensalistasRoute,
   AuthenticatedAdminSorteioRoute: AuthenticatedAdminSorteioRoute,
+  AuthenticatedGruposGroupIdRoute: AuthenticatedGruposGroupIdRoute,
+  AuthenticatedGruposIndexRoute: AuthenticatedGruposIndexRoute,
 }
 
 const AuthenticatedRouteRouteWithChildren =
