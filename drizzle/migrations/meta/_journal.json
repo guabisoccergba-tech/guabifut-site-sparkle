@@ -15,6 +15,13 @@
       "when": 1789492150370,
       "tag": "0001_permitir_primeiro_administrador",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1794307981789,
+      "tag": "0002_grupos_de_jogo",
+      "breakpoints": true
     }
   ]
 }
