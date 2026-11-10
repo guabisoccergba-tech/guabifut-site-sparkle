@@ -178,6 +178,118 @@ export type Database = {
         }
         Relationships: []
       }
+      group_matches: {
+        Row: {
+          created_at: string
+          draw_method: string
+          group_id: string
+          id: string
+          location: string | null
+          match_at: string
+          teams: Json | null
+          teams_count: number
+        }
+        Insert: {
+          created_at?: string
+          draw_method?: string
+          group_id: string
+          id?: string
+          location?: string | null
+          match_at: string
+          teams?: Json | null
+          teams_count?: number
+        }
+        Update: {
+          created_at?: string
+          draw_method?: string
+          group_id?: string
+          id?: string
+          location?: string | null
+          match_at?: string
+          teams?: Json | null
+          teams_count?: number
+        }
+        Relationships: [
+          {
+            foreignKeyName: "group_matches_group_id_fkey"
+            columns: ["group_id"]
+            isOneToOne: false
+            referencedRelation: "play_groups"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      group_members: {
+        Row: {
+          created_at: string
+          email: string | null
+          group_id: string
+          id: string
+          is_goalkeeper: boolean
+          is_star: boolean
+          name: string
+        }
+        Insert: {
+          created_at?: string
+          email?: string | null
+          group_id: string
+          id?: string
+          is_goalkeeper?: boolean
+          is_star?: boolean
+          name: string
+        }
+        Update: {
+          created_at?: string
+          email?: string | null
+          group_id?: string
+          id?: string
+          is_goalkeeper?: boolean
+          is_star?: boolean
+          name?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "group_members_group_id_fkey"
+            columns: ["group_id"]
+            isOneToOne: false
+            referencedRelation: "play_groups"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      match_presence: {
+        Row: {
+          created_at: string
+          match_id: string
+          member_id: string
+        }
+        Insert: {
+          created_at?: string
+          match_id: string
+          member_id: string
+        }
+        Update: {
+          created_at?: string
+          match_id?: string
+          member_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "match_presence_match_id_fkey"
+            columns: ["match_id"]
+            isOneToOne: false
+            referencedRelation: "group_matches"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "match_presence_member_id_fkey"
+            columns: ["member_id"]
+            isOneToOne: false
+            referencedRelation: "group_members"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       opening_hours: {
         Row: {
           closed: boolean
@@ -215,6 +327,27 @@ export type Database = {
             referencedColumns: ["id"]
           },
         ]
+      }
+      play_groups: {
+        Row: {
+          created_at: string
+          id: string
+          name: string
+          owner_id: string
+        }
+        Insert: {
+          created_at?: string
+          id?: string
+          name: string
+          owner_id?: string
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          name?: string
+          owner_id?: string
+        }
+        Relationships: []
       }
       profiles: {
         Row: {
@@ -407,6 +540,8 @@ export type Database = {
         }
         Returns: boolean
       }
+      is_group_member: { Args: { _group_id: string }; Returns: boolean }
+      match_group: { Args: { _match_id: string }; Returns: string }
     }
     Enums: {
       app_role: "admin" | "user"
